@@ -79,7 +79,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withSchedule(function (Schedule $schedule) {
         if (app()->environment('production')) {
-            $schedule->command('exact:process-queue')->everyMinute();
+            $schedule->command('exact:process-queue production')->everyMinute();
         }
     })
     ->create();
@@ -372,7 +372,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withSchedule(function (Schedule $schedule) {
         if (app()->environment('production')) {
-            $schedule->command('exact:process-queue')->everyMinute();
+            $schedule->command('exact:process-queue production')->everyMinute();
         }
     })
     ->create();
@@ -599,6 +599,7 @@ ExactQueue::create([
         "invoice_id" => $invoice->id,
     ],
     "priority" => QueuePriorityEnum::NORMAL, 
+    "environment" => 'production' // Optional (Default: production)
 ]);
 ```
 
@@ -752,7 +753,7 @@ You can also retry the job or delete it from the queue. If you wish to put the j
 ### 1. Job Stuck in Queue
 You can manually process the queue by running the following command:
 ```bash
-php artisan exact:process-queue
+php artisan exact:process-queue {environment}
 ```
 
 ### 2. View Logs for Errors

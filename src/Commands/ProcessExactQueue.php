@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Mail;
 
 class ProcessExactQueue extends Command
 {
-    protected $signature = 'exact:process-queue';
+    protected $signature = 'exact:process-queue {environment=production}';
 
     protected $description = 'Process the ExactQueue table and dispatches job dynamically';
 
     public function handle(ExactService $exactService): void
     {
+        $environment = $this->argument('environment');
+
         // Get pending queue item. First get the highest priority, otherwise get the lowest number.
         $queue = ExactQueue::where('status', QueueStatusEnum::PENDING)
+            ->where('environment', $environment)
             ->orderBy('priority', 'desc')
             ->orderBy('id', 'asc')
             ->first();
