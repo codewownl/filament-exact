@@ -22,12 +22,14 @@ class ExactQueue extends Model
         'attempts',
         'response',
         'finished_at',
+        'division',
     ];
 
     protected $casts = [
         'status' => QueueStatusEnum::class,
         'priority' => QueuePriorityEnum::class,
         'parameters' => 'array',
+        'division' => 'integer',
     ];
 
     public function getTable(): string

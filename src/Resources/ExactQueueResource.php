@@ -14,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -85,6 +86,10 @@ class ExactQueueResource extends Resource
                             ->label(__('Job'))
                             ->columnSpan(1)
                             ->disabled(),
+                        TextInput::make('division')
+                            ->label(__('Division'))
+                            ->columnSpan(1)
+                            ->disabled(),
                         Select::make('status')
                             ->label(__('Status'))
                             ->options(QueueStatusEnum::class)
@@ -138,6 +143,10 @@ class ExactQueueResource extends Resource
                 TextColumn::make('job')
                     ->label(__('Job'))
                     ->searchable(),
+                TextColumn::make('division')
+                    ->label(__('Division'))
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('parameters')
                     ->label(__('Parameters'))
                     ->searchable(),
@@ -147,7 +156,14 @@ class ExactQueueResource extends Resource
                     ->sortable()
                     ->searchable(),
             ])
-            ->filters([])
+            ->filters([
+                SelectFilter::make('division')
+                    ->label(__('Division'))
+                    ->options(function () {
+                        $divisions = config('filament-exact.exact.divisions', []);
+                        return array_combine($divisions, $divisions);
+                    }),
+            ])
             ->actions([]);
     }
 
