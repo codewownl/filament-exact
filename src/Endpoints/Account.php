@@ -95,4 +95,3 @@ class Account extends Model
 
     protected $url = 'crm/Accounts';
 }
-
