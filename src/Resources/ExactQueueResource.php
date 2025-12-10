@@ -161,6 +161,7 @@ class ExactQueueResource extends Resource
                     ->label(__('Division'))
                     ->options(function () {
                         $divisions = config('filament-exact.exact.divisions', []);
+
                         return array_combine($divisions, $divisions);
                     }),
             ])
