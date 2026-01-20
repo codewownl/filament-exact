@@ -23,10 +23,6 @@ class ExactService
         $this->connection->setExactClientId(config('filament-exact.exact.client_id'));
         $this->connection->setExactClientSecret(config('filament-exact.exact.client_secret'));
         $this->connection->setWaitOnMinutelyRateLimitHit(true);
-
-        if (config('filament-exact.exact.division')) {
-            $this->connection->setDivision(config('filament-exact.exact.division'));
-        }
     }
 
     public function getAuthUrl()
@@ -70,6 +66,11 @@ class ExactService
     public function setDivision($division)
     {
         $this->connection->setDivision($division);
+    }
+
+    public function getDivisions(): array
+    {
+        return config('filament-exact.exact.divisions', []);
     }
 
     private function tokenHasExpired(): bool
