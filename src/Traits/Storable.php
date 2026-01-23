@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Traits;
+namespace CodeWOW\FilamentExact\Traits;
 
-use CreativeWork\FilamentExact\Exceptions\ApiException;
-use CreativeWork\FilamentExact\Services\Connection;
+use CodeWOW\FilamentExact\Exceptions\ApiException;
+use CodeWOW\FilamentExact\Services\Connection;
 
 trait Storable
 {

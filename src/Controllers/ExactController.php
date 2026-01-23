@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Controllers;
+namespace CodeWOW\FilamentExact\Controllers;
 
-use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
-use CreativeWork\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Resources\ExactQueue\ExactQueueResource;
+use CodeWOW\FilamentExact\Services\ExactService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 

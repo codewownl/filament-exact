@@ -1,11 +1,11 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Services;
+namespace CodeWOW\FilamentExact\Services;
 
-use CreativeWork\FilamentExact\Endpoints\Me;
-use CreativeWork\FilamentExact\Endpoints\SystemUser;
-use CreativeWork\FilamentExact\Exceptions\ApiException;
-use CreativeWork\FilamentExact\Models\ExactToken;
+use CodeWOW\FilamentExact\Endpoints\Me;
+use CodeWOW\FilamentExact\Endpoints\SystemUser;
+use CodeWOW\FilamentExact\Exceptions\ApiException;
+use CodeWOW\FilamentExact\Models\ExactToken;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;

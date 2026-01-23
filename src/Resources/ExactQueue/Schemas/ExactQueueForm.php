@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueue\Schemas;
+namespace CodeWOW\FilamentExact\Resources\ExactQueue\Schemas;
 
-use CreativeWork\FilamentExact\Enums\QueuePriorityEnum;
-use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
+use CodeWOW\FilamentExact\Enums\QueuePriorityEnum;
+use CodeWOW\FilamentExact\Enums\QueueStatusEnum;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;

@@ -1,11 +1,11 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueue;
+namespace CodeWOW\FilamentExact\Resources\ExactQueue;
 
-use CreativeWork\FilamentExact\Resources\ExactQueue\Pages\ListExactQueue;
-use CreativeWork\FilamentExact\Resources\ExactQueue\Pages\ViewExactQueue;
-use CreativeWork\FilamentExact\Resources\ExactQueue\Schemas\ExactQueueForm;
-use CreativeWork\FilamentExact\Resources\ExactQueue\Tables\ExactQueueTable;
+use CodeWOW\FilamentExact\Resources\ExactQueue\Pages\ListExactQueue;
+use CodeWOW\FilamentExact\Resources\ExactQueue\Pages\ViewExactQueue;
+use CodeWOW\FilamentExact\Resources\ExactQueue\Schemas\ExactQueueForm;
+use CodeWOW\FilamentExact\Resources\ExactQueue\Tables\ExactQueueTable;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;

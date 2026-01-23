@@ -1,7 +1,7 @@
 <?php
 
-use CreativeWork\FilamentExact\Models\ExactQueue;
-use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
+use CodeWOW\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Resources\ExactQueue\ExactQueueResource;
 
 return [
     'model' => ExactQueue::class,

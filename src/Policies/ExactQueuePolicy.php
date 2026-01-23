@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Policies;
+namespace CodeWOW\FilamentExact\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 

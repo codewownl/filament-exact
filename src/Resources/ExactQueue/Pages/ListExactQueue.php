@@ -1,10 +1,10 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueue\Pages;
+namespace CodeWOW\FilamentExact\Resources\ExactQueue\Pages;
 
-use CreativeWork\FilamentExact\Models\ExactToken;
-use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
-use CreativeWork\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Models\ExactToken;
+use CodeWOW\FilamentExact\Resources\ExactQueue\ExactQueueResource;
+use CodeWOW\FilamentExact\Services\ExactService;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;

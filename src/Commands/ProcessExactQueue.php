@@ -1,12 +1,12 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Commands;
+namespace CodeWOW\FilamentExact\Commands;
 
-use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
-use CreativeWork\FilamentExact\Mail\ExactErrorMail;
-use CreativeWork\FilamentExact\Models\ExactQueue;
-use CreativeWork\FilamentExact\Models\ExactToken;
-use CreativeWork\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Enums\QueueStatusEnum;
+use CodeWOW\FilamentExact\Mail\ExactErrorMail;
+use CodeWOW\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Models\ExactToken;
+use CodeWOW\FilamentExact\Services\ExactService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;

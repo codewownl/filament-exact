@@ -19,7 +19,7 @@
 - 🔄 **Retry-policy** to automatically retry failed jobs.
 - 🚀 **Realtime overview** of the queue status.
 
-![Filament Exact](https://raw.githubusercontent.com/creativework/filament-exact/master/docs/filament-exact.png)
+![Filament Exact](https://raw.githubusercontent.com/codewownl/filament-exact/master/docs/filament-exact.png)
 
 ---
 
@@ -27,7 +27,7 @@
 
 ### 1. Install the Package via composer
 ```bash
-composer require creativework/filament-exact
+composer require codewow/filament-exact
 ```
 
 ### 2. Publish the assets and run the installer
@@ -47,7 +47,7 @@ EXACT_ONLINE_DIVISIONS="" # Comma-separated list of divisions (123456,654321)
 
 ### 4. Add the plugin to your `PanelProvider`
 ```php
-use CreativeWork\FilamentExact\FilamentExactPlugin;
+use CodeWOW\FilamentExact\FilamentExactPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -88,7 +88,7 @@ return Application::configure(basePath: dirname(__DIR__))
 ### 6. Authorize the application
 Navigate to the Filament panel and click on the "Authorize" button in the ExactOnline Resource.
 You will be redirected to the ExactOnline login page to authorize the application.
-![Authorize Exact](https://raw.githubusercontent.com/creativework/filament-exact/master/docs/filament-exact-authorize-button.png)
+![Authorize Exact](https://raw.githubusercontent.com/codewownl/filament-exact/master/docs/filament-exact-authorize-button.png)
 
 ---
 
@@ -287,7 +287,7 @@ $user->assignRole('exact-admin');
 **Helper Trait (Optional)**
 For convenience, you can use the included `HasExactPermissions` trait in your user model to check permissions easily:
 ```php
-use CreativeWork\FilamentExact\Traits\HasExactQueuePermissions;
+use CodeWOW\FilamentExact\Traits\HasExactQueuePermissions;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -302,8 +302,8 @@ class User extends Authenticatable
 ### Adding a Job to the Exact Queue
 ```php
 use App\Jobs\ImportProductsJob;
-use CreativeWork\FilamentExact\Models\ExactQueue;
-use CreativeWork\FilamentExact\Enums\QueuePriorityEnum;
+use CodeWOW\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Enums\QueuePriorityEnum;
 
 ExactQueue::create([
     "job" => ImportProductsJob::class,
@@ -328,11 +328,11 @@ The `priority` field in the `ExactQueue` model can be set to one of the followin
 
 ### Create a Custom Job
 ```php
-use CreativeWork\FilamentExact\Jobs\ExactQueueJob;
+use CodeWOW\FilamentExact\Jobs\ExactQueueJob;
 use Exception;
 use Log;
-use CreativeWork\FilamentExact\Services\ExactService;
-use CreativeWork\FilamentExact\Endpoints\Item;
+use CodeWOW\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Endpoints\Item;
 use App\Models\Product;
 
 class ImportProductsJob extends ExactQueueJob
@@ -375,7 +375,7 @@ Create a class that extends `ExactWebhook` and implement the `handle` method to 
 ```php
 namespace App\Webhooks;
 
-use CreativeWork\FilamentExact\Webhooks\ExactWebhook;
+use CodeWOW\FilamentExact\Webhooks\ExactWebhook;
 
 class ItemsWebhook extends ExactWebhook
 {
@@ -397,7 +397,7 @@ class ItemsWebhook extends ExactWebhook
 ### 2. Register the Webhook
 To register webhooks, call the `webhooks()` method in your `PanelProvider`.
 ```php
-use CreativeWork\FilamentExact\FilamentExactPlugin;
+use CodeWOW\FilamentExact\FilamentExactPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -450,13 +450,13 @@ If you would like to contribute translations for other languages, feel free to s
 ### Queue Overview
 The queue overview provides a list of all jobs in the queue, including their status, priority, and progress.
 You can filter the queue by status quickly find the job you are looking for. If you want to see more details about a job, you can click on the job to view the details.
-![Queue Overview](https://raw.githubusercontent.com/creativework/filament-exact/master/docs/filament-exact-overview.png)
+![Queue Overview](https://raw.githubusercontent.com/codewownl/filament-exact/master/docs/filament-exact-overview.png)
 
 ### Queue Job Details
 From within this view you can see the progress of the job, the status, and any errors that occurred.
 You can also retry the job or delete it from the queue. If you wish to put the job on top of the queue, you can raise the priority of the job.
 
-![Queue Job Details](https://raw.githubusercontent.com/creativework/filament-exact/master/docs/filament-exact-detail.png)
+![Queue Job Details](https://raw.githubusercontent.com/codewownl/filament-exact/master/docs/filament-exact-detail.png)
 
 ---
 
@@ -476,7 +476,7 @@ tail -f storage/logs/laravel.log
 ### 3. Getting 401 Unauthorized Errors?
 You may need to authorize the application again. You can do this from the Filament panel by clicking on the "Authorize" button in the ExactOnline Resource.
 
-![Authorize Exact](https://raw.githubusercontent.com/creativework/filament-exact/master/docs/filament-exact-authorize-button.png)
+![Authorize Exact](https://raw.githubusercontent.com/codewownl/filament-exact/master/docs/filament-exact-authorize-button.png)
 
 ---
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Actions;
+namespace CodeWOW\FilamentExact\Actions;
 
-use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
-use CreativeWork\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Enums\QueueStatusEnum;
+use CodeWOW\FilamentExact\Models\ExactQueue;
 use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;

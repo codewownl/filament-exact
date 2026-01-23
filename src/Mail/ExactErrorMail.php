@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Mail;
+namespace CodeWOW\FilamentExact\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Jobs;
+namespace CodeWOW\FilamentExact\Jobs;
 
-use CreativeWork\FilamentExact\Models\ExactQueue;
-use CreativeWork\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Services\ExactService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\Middleware\RateLimited;

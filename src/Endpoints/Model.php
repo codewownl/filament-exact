@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Endpoints;
+namespace CodeWOW\FilamentExact\Endpoints;
 
-use CreativeWork\FilamentExact\Services\Connection;
+use CodeWOW\FilamentExact\Services\Connection;
 
 class Model implements \JsonSerializable
 {
@@ -229,7 +229,7 @@ class Model implements \JsonSerializable
                         $value->attributes = array_merge($value->attributes, $value->deferred);
                     }
 
-                    if (is_a($value, 'CreativeWork\FilamentExact\Endpoints\Model')) {
+                    if (is_a($value, 'CodeWOW\FilamentExact\Endpoints\Model')) {
                         array_push($attributes[$attribute], $value->attributes);
                     } else {
                         array_push($attributes[$attribute], $value);

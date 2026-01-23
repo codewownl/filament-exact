@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Facades;
+namespace CodeWOW\FilamentExact\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,6 +8,6 @@ class FilamentExact extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \CreativeWork\FilamentExact\FilamentExact::class;
+        return \CodeWOW\FilamentExact\FilamentExact::class;
     }
 }

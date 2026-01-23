@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Endpoints;
+namespace CodeWOW\FilamentExact\Endpoints;
 
-use CreativeWork\FilamentExact\Traits\Findable;
+use CodeWOW\FilamentExact\Traits\Findable;
 
 class LeaveBuildUpRegistration extends Model
 {

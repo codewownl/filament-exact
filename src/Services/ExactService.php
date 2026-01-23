@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Services;
+namespace CodeWOW\FilamentExact\Services;
 
-use CreativeWork\FilamentExact\Models\ExactToken;
+use CodeWOW\FilamentExact\Models\ExactToken;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Log;

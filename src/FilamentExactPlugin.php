@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact;
+namespace CodeWOW\FilamentExact;
 
-use CreativeWork\FilamentExact\Policies\ExactQueuePolicy;
+use CodeWOW\FilamentExact\Policies\ExactQueuePolicy;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\Support\Facades\Gate;

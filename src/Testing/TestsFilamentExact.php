@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Testing;
+namespace CodeWOW\FilamentExact\Testing;
 
 use Livewire\Features\SupportTesting\Testable;
 

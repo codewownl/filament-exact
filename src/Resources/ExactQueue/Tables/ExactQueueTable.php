@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueue\Tables;
+namespace CodeWOW\FilamentExact\Resources\ExactQueue\Tables;
 
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;

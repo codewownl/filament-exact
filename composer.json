@@ -1,22 +1,24 @@
 {
-    "name": "creativework/filament-exact",
+    "name": "codewow/filament-exact",
     "version": "2.0.0",
     "description": "ExactOnline Panel for FilamentPHP",
     "keywords": [
         "creativework",
+        "codewow",
+        "codewownl",
         "laravel",
         "filament-exact"
     ],
-    "homepage": "https://github.com/creativework/filament-exact",
+    "homepage": "https://github.com/codewownl/filament-exact",
     "support": {
-        "issues": "https://github.com/creativework/filament-exact/issues",
-        "source": "https://github.com/creativework/filament-exact"
+        "issues": "https://github.com/codewownl/filament-exact/issues",
+        "source": "https://github.com/codewownl/filament-exact"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Jessedev1",
-            "email": "jesse@creativework.nl",
+            "email": "jesse@codewow.nl",
             "role": "Developer"
         }
     ],
@@ -39,7 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CreativeWork\\FilamentExact\\": "src/"
+            "CodeWOW\\FilamentExact\\": "src/"
         }
     },
     "autoload-dev": {
@@ -62,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CreativeWork\\FilamentExact\\FilamentExactServiceProvider"
+                "CodeWOW\\FilamentExact\\FilamentExactServiceProvider"
             ],
             "aliases": {
-                "FilamentExact": "CreativeWork\\FilamentExact\\Facades\\FilamentExact"
+                "FilamentExact": "CodeWOW\\FilamentExact\\Facades\\FilamentExact"
             }
         }
     },

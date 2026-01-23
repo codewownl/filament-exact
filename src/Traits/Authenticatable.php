@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Traits;
+namespace CodeWOW\FilamentExact\Traits;
 
 trait Authenticatable
 {
