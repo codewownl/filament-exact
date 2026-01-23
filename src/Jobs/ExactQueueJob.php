@@ -14,7 +14,7 @@ abstract class ExactQueueJob implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    public ?ExactQueue $queue = null;
+    public ?ExactQueue $exactQueue = null;
 
     /**
      * Define job middleware.
@@ -36,8 +36,8 @@ abstract class ExactQueueJob implements ShouldQueue
      */
     public function execute(ExactService $service): void
     {
-        if ($this->queue && $this->queue->division) {
-            $service->setDivision($this->queue->division);
+        if ($this->exactQueue && $this->exactQueue->division) {
+            $service->setDivision($this->exactQueue->division);
         }
 
         $this->handle($service);

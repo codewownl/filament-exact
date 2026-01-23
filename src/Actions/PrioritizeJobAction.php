@@ -6,31 +6,17 @@ use CreativeWork\FilamentExact\Enums\QueuePriorityEnum;
 use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
 use CreativeWork\FilamentExact\Models\ExactQueue;
 use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action as TableAction;
-use Filament\Tables\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class PrioritizeJobAction
 {
-    public static function make($type = 'general'): Action | TableAction | BulkAction
+    public static function make($type = 'general'): Action | BulkAction
     {
         $modelClass = config('filament-exact.model');
 
         switch ($type) {
-            case 'table':
-                return TableAction::make('prioritize')
-                    ->label(__('Increase Priority'))
-                    ->color('primary')
-                    ->icon('heroicon-o-exclamation-triangle')
-                    ->requiresConfirmation()
-                    ->modalDescription(__('Are you sure you want to increase the priority of this job?'))
-                    ->visible(fn ($record) => $record->status === QueueStatusEnum::PENDING && auth()->user()?->can('prioritize', $record) ?? true)
-                    ->action(function (TableAction $action, ExactQueue $record) {
-                        return static::handle($action, $record);
-                    });
-
-                break;
             case 'bulk':
                 return BulkAction::make('prioritize')
                     ->label(__('Increase Priority'))
@@ -63,7 +49,7 @@ class PrioritizeJobAction
         }
     }
 
-    public static function handle(Action | TableAction | BulkAction $action, ExactQueue $record, $livewire = null)
+    public static function handle(Action | BulkAction $action, ExactQueue $record, $livewire = null)
     {
         if (auth()->user() && ! auth()->user()->can('prioritize', $record)) {
             Notification::make()

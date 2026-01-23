@@ -5,31 +5,17 @@ namespace CreativeWork\FilamentExact\Actions;
 use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
 use CreativeWork\FilamentExact\Models\ExactQueue;
 use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action as TableAction;
-use Filament\Tables\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class CancelJobAction
 {
-    public static function make($type = 'general'): Action | TableAction | BulkAction
+    public static function make($type = 'general'): Action | BulkAction
     {
         $modelClass = config('filament-exact.model');
 
         switch ($type) {
-            case 'table':
-                return TableAction::make('cancel')
-                    ->label(__('Cancel Job'))
-                    ->color('danger')
-                    ->icon('heroicon-o-no-symbol')
-                    ->requiresConfirmation()
-                    ->modalDescription(__('Are you sure you want to cancel this job?'))
-                    ->visible(fn ($record) => $record->status === QueueStatusEnum::PENDING && auth()->user()?->can('cancel', $record) ?? true)
-                    ->action(function (TableAction $action, ExactQueue $record) {
-                        return static::handle($action, $record);
-                    });
-
-                break;
             case 'bulk':
                 return BulkAction::make('cancel')
                     ->label(__('Cancel Job'))
@@ -62,7 +48,7 @@ class CancelJobAction
         }
     }
 
-    public static function handle(Action | TableAction | BulkAction $action, ExactQueue $record, $livewire = null)
+    public static function handle(Action | BulkAction $action, ExactQueue $record, $livewire = null)
     {
         if (auth()->user() && ! auth()->user()->can('cancel', $record)) {
             Notification::make()

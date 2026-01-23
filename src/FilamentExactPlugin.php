@@ -3,7 +3,6 @@
 namespace CreativeWork\FilamentExact;
 
 use CreativeWork\FilamentExact\Policies\ExactQueuePolicy;
-use CreativeWork\FilamentExact\Resources\ExactQueueResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\Support\Facades\Gate;

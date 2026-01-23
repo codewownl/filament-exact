@@ -2,7 +2,7 @@
 
 namespace CreativeWork\FilamentExact\Controllers;
 
-use CreativeWork\FilamentExact\Resources\ExactQueueResource;
+use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
 use CreativeWork\FilamentExact\Services\ExactService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

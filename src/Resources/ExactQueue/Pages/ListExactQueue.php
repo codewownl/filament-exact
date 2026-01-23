@@ -1,14 +1,14 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueueResource\Pages;
+namespace CreativeWork\FilamentExact\Resources\ExactQueue\Pages;
 
 use CreativeWork\FilamentExact\Models\ExactToken;
-use CreativeWork\FilamentExact\Resources\ExactQueueResource;
+use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
 use CreativeWork\FilamentExact\Services\ExactService;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
 class ListExactQueue extends ListRecords

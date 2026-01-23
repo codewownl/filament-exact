@@ -1,11 +1,11 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources\ExactQueueResource\Pages;
+namespace CreativeWork\FilamentExact\Resources\ExactQueue\Pages;
 
 use CreativeWork\FilamentExact\Actions\CancelJobAction;
 use CreativeWork\FilamentExact\Actions\DuplicateTaskAction;
 use CreativeWork\FilamentExact\Actions\PrioritizeJobAction;
-use CreativeWork\FilamentExact\Resources\ExactQueueResource;
+use CreativeWork\FilamentExact\Resources\ExactQueue\ExactQueueResource;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewExactQueue extends ViewRecord
