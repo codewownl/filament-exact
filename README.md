@@ -13,7 +13,7 @@
 - ✅ **Priority Queue** to prioritize jobs based on their importance.
 - ✅ **Webhook support** to handle ExactOnline webhooks in a structured way.
 - ✅ **Permission-based access control** (optional) with [Filament Shield](https://filamentphp.com/plugins/bezhansalleh-shield) integration.
-- 
+-
 
 ### Upcoming features
 - 🔄 **Retry-policy** to automatically retry failed jobs.
@@ -137,7 +137,7 @@ return [
         'group' => null,
         'sort' => -1,
     ],
-    
+
     'shield' => [
         'enabled' => false,
         'permissions' => [
@@ -157,7 +157,7 @@ return [
 - **resource**: The resource used to display the queue items in the Filament panel.
 - **database.tables**: The database tables used to store the queue items and tokens.
 - **database.pruning**: Configuration for pruning old queue items.
-- **notifications.mail.to**: The email addresses to send notifications to. (e.g ["errors@creativework.nl", "jesse@creativework.nl"])
+- **notifications.mail.to**: The email addresses to send notifications to. (e.g ["errors@codewow.nl", "jesse@codewow.nl"])
 - **exact**: Configuration for the ExactOnline API.
 - **navigation.group**: The group to add the ExactOnline plugin to in the Filament panel.
 - **navigation.sort**: The sort order of the ExactOnline plugin in the Filament panel.
@@ -184,7 +184,7 @@ php artisan migrate
 2. Add the `HasRoles` trait to your auth provider model:
 ```php
 use Spatie\Permission\Traits\HasRoles;
- 
+
 class User extends Authenticatable
 {
     use HasRoles;
@@ -310,7 +310,7 @@ ExactQueue::create([
     "parameters" => [
         "invoice_id" => $invoice->id,
     ],
-    "priority" => QueuePriorityEnum::NORMAL, 
+    "priority" => QueuePriorityEnum::NORMAL,
     "environment" => 'production' // Optional (Default: production)
 ]);
 ```
