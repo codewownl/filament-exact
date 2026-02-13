@@ -3,7 +3,6 @@
 namespace CodeWOW\FilamentExact\Endpoints;
 
 use CodeWOW\FilamentExact\Traits\Findable;
-use CodeWOW\FilamentExact\Traits\Storable;
 use CodeWOW\FilamentExact\Traits\Syncable;
 
 class SyncItemWarehouse extends Model

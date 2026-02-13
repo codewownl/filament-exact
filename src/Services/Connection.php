@@ -651,8 +651,8 @@ class Connection
                 $refreshTokenAfter = $decodedBody['refresh_token'] ?? null;
 
                 Log::info('[Exact Token Refresh] Token refresh successful', [
-                    'access_token_after' => $accessTokenAfter ? substr($accessTokenAfter, 0, 20).'...' : null,
-                    'refresh_token_after' => $refreshTokenAfter ? substr($refreshTokenAfter, 0, 20).'...' : null,
+                    'access_token_after' => $accessTokenAfter ? substr($accessTokenAfter, 0, 20) . '...' : null,
+                    'refresh_token_after' => $refreshTokenAfter ? substr($refreshTokenAfter, 0, 20) . '...' : null,
                     'expires_in' => $decodedBody['expires_in'] ?? null,
                     'token_changed' => [
                         'access_token' => $accessTokenBefore !== $accessTokenAfter,
@@ -672,6 +672,7 @@ class Connection
                     'json_error' => json_last_error_msg(),
                     'response_body' => $responseBody,
                 ]);
+
                 throw new ApiException('Could not acquire tokens, json decode failed. Got response: ' . $responseBody);
             }
         } catch (BadResponseException $ex) {
@@ -699,6 +700,7 @@ class Connection
                 'exception_message' => $ex->getMessage(),
                 'exception_trace' => $ex->getTraceAsString(),
             ]);
+
             throw $ex;
         } finally {
             if (is_callable($this->acquireAccessTokenUnlockCallback)) {
