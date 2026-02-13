@@ -12,6 +12,7 @@ use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 
 class Connection
@@ -568,6 +569,15 @@ class Connection
 
     private function acquireAccessToken(): void
     {
+        $accessTokenBefore = $this->getAccessToken();
+        $refreshTokenBefore = $this->getRefreshToken();
+
+        Log::info('[Exact Token Refresh] Starting token acquisition', [
+            'access_token_before' => $accessTokenBefore ? substr($accessTokenBefore, 0, 20) . '...' : null,
+            'refresh_token_before' => $refreshTokenBefore ? substr($refreshTokenBefore, 0, 20) . '...' : null,
+            'token_url' => $this->getTokenUrl(),
+        ]);
+
         try {
             if (is_callable($this->acquireAccessTokenLockCallback)) {
                 call_user_func($this->acquireAccessTokenLockCallback, $this);
@@ -603,25 +613,93 @@ class Connection
                 ];
             }
 
+            $requestBodyForLogging = $body['form_params'];
+            if (isset($requestBodyForLogging['client_secret'])) {
+                $requestBodyForLogging['client_secret'] = substr($requestBodyForLogging['client_secret'], 0, 10) . '...';
+            }
+            if (isset($requestBodyForLogging['refresh_token'])) {
+                $requestBodyForLogging['refresh_token'] = substr($requestBodyForLogging['refresh_token'], 0, 20) . '...';
+            }
+
+            Log::info('[Exact Token Refresh] Sending token request', [
+                'url' => $this->getTokenUrl(),
+                'request_body' => $requestBodyForLogging,
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                    'Accept' => 'application/json',
+                ],
+            ]);
+
             $response = $this->client()->post($this->getTokenUrl(), $body);
+
+            $statusCode = $response->getStatusCode();
+            $responseHeaders = $response->getHeaders();
 
             Psr7\Message::rewindBody($response);
             $responseBody = $response->getBody()->getContents();
-            $body = json_decode($responseBody, true);
+            $decodedBody = json_decode($responseBody, true);
+
+            Log::info('[Exact Token Refresh] Received token response', [
+                'status_code' => $statusCode,
+                'response_headers' => $responseHeaders,
+                'response_body_raw' => $responseBody,
+                'response_body_decoded' => $decodedBody,
+            ]);
 
             if (json_last_error() === JSON_ERROR_NONE) {
-                $this->setAccessToken($body['access_token']);
-                $this->setRefreshToken($body['refresh_token']);
-                $this->setTokenExpires($this->getTimestampFromExpiresIn($body['expires_in']));
+                $accessTokenAfter = $decodedBody['access_token'] ?? null;
+                $refreshTokenAfter = $decodedBody['refresh_token'] ?? null;
+
+                Log::info('[Exact Token Refresh] Token refresh successful', [
+                    'access_token_after' => $accessTokenAfter ? substr($accessTokenAfter, 0, 20).'...' : null,
+                    'refresh_token_after' => $refreshTokenAfter ? substr($refreshTokenAfter, 0, 20).'...' : null,
+                    'expires_in' => $decodedBody['expires_in'] ?? null,
+                    'token_changed' => [
+                        'access_token' => $accessTokenBefore !== $accessTokenAfter,
+                        'refresh_token' => $refreshTokenBefore !== $refreshTokenAfter,
+                    ],
+                ]);
+
+                $this->setAccessToken($decodedBody['access_token']);
+                $this->setRefreshToken($decodedBody['refresh_token']);
+                $this->setTokenExpires($this->getTimestampFromExpiresIn($decodedBody['expires_in']));
 
                 if (is_callable($this->tokenUpdateCallback)) {
                     call_user_func($this->tokenUpdateCallback, $this);
                 }
             } else {
+                Log::error('[Exact Token Refresh] JSON decode failed', [
+                    'json_error' => json_last_error_msg(),
+                    'response_body' => $responseBody,
+                ]);
                 throw new ApiException('Could not acquire tokens, json decode failed. Got response: ' . $responseBody);
             }
         } catch (BadResponseException $ex) {
+            $response = $ex->getResponse();
+            $errorStatusCode = $response ? $response->getStatusCode() : null;
+            $errorHeaders = $response ? $response->getHeaders() : null;
+
+            $errorResponseBody = null;
+            if ($response) {
+                Psr7\Message::rewindBody($response);
+                $errorResponseBody = $response->getBody()->getContents();
+            }
+
+            Log::error('[Exact Token Refresh] BadResponseException occurred', [
+                'status_code' => $errorStatusCode,
+                'response_headers' => $errorHeaders,
+                'response_body' => $errorResponseBody,
+                'exception_message' => $ex->getMessage(),
+            ]);
+
             $this->parseExceptionForErrorMessages($ex);
+        } catch (Exception $ex) {
+            Log::error('[Exact Token Refresh] Exception occurred', [
+                'exception_type' => get_class($ex),
+                'exception_message' => $ex->getMessage(),
+                'exception_trace' => $ex->getTraceAsString(),
+            ]);
+            throw $ex;
         } finally {
             if (is_callable($this->acquireAccessTokenUnlockCallback)) {
                 call_user_func($this->acquireAccessTokenUnlockCallback, $this);
