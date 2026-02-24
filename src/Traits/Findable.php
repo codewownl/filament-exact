@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Traits;
+namespace CodeWOW\FilamentExact\Traits;
 
-use CreativeWork\FilamentExact\Services\Connection;
+use CodeWOW\FilamentExact\Services\Connection;
 use Generator;
 
 trait Findable
@@ -120,7 +120,7 @@ trait Findable
     /**
      * Returns the first Financial model in by applying $top=1 to the query string.
      *
-     * @return \CreativeWork\FilamentExact\Endpoints\Model
+     * @return \CodeWOW\FilamentExact\Endpoints\Model
      */
     public function first($filter = '', $expand = '', $select = '', $system_query_options = null, array $headers = [])
     {

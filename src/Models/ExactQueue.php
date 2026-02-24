@@ -1,10 +1,10 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Models;
+namespace CodeWOW\FilamentExact\Models;
 
-use CreativeWork\FilamentExact\Enums\QueuePriorityEnum;
-use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
-use CreativeWork\FilamentExact\Mail\ExactErrorMail;
+use CodeWOW\FilamentExact\Enums\QueuePriorityEnum;
+use CodeWOW\FilamentExact\Enums\QueueStatusEnum;
+use CodeWOW\FilamentExact\Mail\ExactErrorMail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\MassPrunable;
 use Illuminate\Database\Eloquent\Model;

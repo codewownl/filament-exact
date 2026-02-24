@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Models;
+namespace CodeWOW\FilamentExact\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

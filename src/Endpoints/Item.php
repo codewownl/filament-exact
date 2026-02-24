@@ -1,10 +1,10 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Endpoints;
+namespace CodeWOW\FilamentExact\Endpoints;
 
-use CreativeWork\FilamentExact\Traits\Downloadable;
-use CreativeWork\FilamentExact\Traits\Findable;
-use CreativeWork\FilamentExact\Traits\Storable;
+use CodeWOW\FilamentExact\Traits\Downloadable;
+use CodeWOW\FilamentExact\Traits\Findable;
+use CodeWOW\FilamentExact\Traits\Storable;
 
 class Item extends Model
 {

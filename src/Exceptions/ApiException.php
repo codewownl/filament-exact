@@ -1,5 +1,5 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Exceptions;
+namespace CodeWOW\FilamentExact\Exceptions;
 
 class ApiException extends \Exception {}

@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Jobs;
+namespace CodeWOW\FilamentExact\Jobs;
 
-use CreativeWork\FilamentExact\Models\ExactQueue;
-use CreativeWork\FilamentExact\Services\ExactService;
+use CodeWOW\FilamentExact\Models\ExactQueue;
+use CodeWOW\FilamentExact\Services\ExactService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\Middleware\RateLimited;
@@ -14,7 +14,7 @@ abstract class ExactQueueJob implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    public ?ExactQueue $queue = null;
+    public ?ExactQueue $exactQueue = null;
 
     /**
      * Define job middleware.
@@ -36,8 +36,8 @@ abstract class ExactQueueJob implements ShouldQueue
      */
     public function execute(ExactService $service): void
     {
-        if ($this->queue && $this->queue->division) {
-            $service->setDivision($this->queue->division);
+        if ($this->exactQueue && $this->exactQueue->division) {
+            $service->setDivision($this->exactQueue->division);
         }
 
         $this->handle($service);

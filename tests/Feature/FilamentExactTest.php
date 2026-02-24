@@ -1,7 +1,7 @@
 <?php
 
 // Ensure package configuration is loaded
-use CreativeWork\FilamentExact\FilamentExactServiceProvider;
+use CodeWOW\FilamentExact\FilamentExactServiceProvider;
 
 it('loads the package configuration', function () {
     expect(config('filament-exact'))->toBeArray();

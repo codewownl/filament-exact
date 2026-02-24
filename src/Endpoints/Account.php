@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Endpoints;
+namespace CodeWOW\FilamentExact\Endpoints;
 
-use CreativeWork\FilamentExact\Traits\Findable;
-use CreativeWork\FilamentExact\Traits\Storable;
+use CodeWOW\FilamentExact\Traits\Findable;
+use CodeWOW\FilamentExact\Traits\Storable;
 
 class Account extends Model
 {
@@ -95,5 +95,3 @@ class Account extends Model
 
     protected $url = 'crm/Accounts';
 }
-
-

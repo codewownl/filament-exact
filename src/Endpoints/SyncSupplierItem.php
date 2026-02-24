@@ -3,13 +3,16 @@
 namespace CodeWOW\FilamentExact\Endpoints;
 
 use CodeWOW\FilamentExact\Traits\Findable;
+use CodeWOW\FilamentExact\Traits\Syncable;
 
-class SupplierItem extends Model
+class SyncSupplierItem extends Model
 {
     use Findable;
+    use Syncable;
 
     protected $fillable = [
         'ID',
+        'Timestamp',
         'Barcode',
         'CopyRemarks',
         'CountryOfOrigin',
@@ -49,5 +52,5 @@ class SupplierItem extends Model
         'SupplierItemCode',
     ];
 
-    protected $url = 'logistics/SupplierItem';
+    protected $url = 'sync/Logistics/SupplierItem';
 }

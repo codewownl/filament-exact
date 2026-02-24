@@ -1,18 +1,18 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Resources;
+namespace CodeWOW\FilamentExact\Resources;
 
-use CreativeWork\FilamentExact\Enums\QueuePriorityEnum;
-use CreativeWork\FilamentExact\Enums\QueueStatusEnum;
-use CreativeWork\FilamentExact\Resources\ExactQueueResource\Pages\ListExactQueue;
-use CreativeWork\FilamentExact\Resources\ExactQueueResource\Pages\ViewExactQueue;
+use CodeWOW\FilamentExact\Enums\QueuePriorityEnum;
+use CodeWOW\FilamentExact\Enums\QueueStatusEnum;
+use CodeWOW\FilamentExact\Resources\ExactQueueResource\Pages\ListExactQueue;
+use CodeWOW\FilamentExact\Resources\ExactQueueResource\Pages\ViewExactQueue;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -71,10 +71,10 @@ class ExactQueueResource extends Resource
         return __('jobs');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('Job Details'))
                     ->description(__('Details about the job.'))
                     ->schema([

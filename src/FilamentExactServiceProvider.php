@@ -1,10 +1,10 @@
 <?php
 
-namespace CreativeWork\FilamentExact;
+namespace CodeWOW\FilamentExact;
 
-use CreativeWork\FilamentExact\Commands\ProcessExactQueue;
-use CreativeWork\FilamentExact\Commands\RegisterExactWebhookCommand;
-use CreativeWork\FilamentExact\Testing\TestsFilamentExact;
+use CodeWOW\FilamentExact\Commands\ProcessExactQueue;
+use CodeWOW\FilamentExact\Commands\RegisterExactWebhookCommand;
+use CodeWOW\FilamentExact\Testing\TestsFilamentExact;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
@@ -86,7 +86,7 @@ class FilamentExactServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'creativework/filament-exact';
+        return 'codewow/filament-exact';
     }
 
     /**

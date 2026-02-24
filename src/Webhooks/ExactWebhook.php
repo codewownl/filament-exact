@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Webhooks;
+namespace CodeWOW\FilamentExact\Webhooks;
 
-use CreativeWork\FilamentExact\Traits\Authenticatable;
+use CodeWOW\FilamentExact\Traits\Authenticatable;
 
 abstract class ExactWebhook
 {

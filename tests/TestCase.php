@@ -4,7 +4,7 @@ namespace Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
-use CreativeWork\FilamentExact\FilamentExactServiceProvider;
+use CodeWOW\FilamentExact\FilamentExactServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
 use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;

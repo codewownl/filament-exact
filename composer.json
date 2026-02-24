@@ -1,44 +1,47 @@
 {
-    "name": "creativework/filament-exact",
-    "version": "1.1.9",
+    "name": "codewow/filament-exact",
+    "version": "2.0.2",
     "description": "ExactOnline Panel for FilamentPHP",
     "keywords": [
         "creativework",
+        "codewow",
+        "codewownl",
         "laravel",
         "filament-exact"
     ],
-    "homepage": "https://github.com/creativework/filament-exact",
+    "homepage": "https://github.com/codewownl/filament-exact",
     "support": {
-        "issues": "https://github.com/creativework/filament-exact/issues",
-        "source": "https://github.com/creativework/filament-exact"
+        "issues": "https://github.com/codewownl/filament-exact/issues",
+        "source": "https://github.com/codewownl/filament-exact"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Jessedev1",
-            "email": "jesse@creativework.nl",
+            "email": "jesse@codewow.nl",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.4",
         "ext-json": "*",
-        "bezhansalleh/filament-shield": "^3.3",
-        "filament/filament": "^3.0",
+        "bezhansalleh/filament-shield": "^4.1.0",
+        "filament/filament": "^4.0|^5.0",
         "guzzlehttp/guzzle": "^7.9",
-        "spatie/laravel-package-tools": "^1.15.0",
-        "spatie/laravel-permission": "^6.18"
+        "spatie/laravel-package-tools": "^1.92.0",
+        "spatie/laravel-permission": "^6.24"
     },
     "require-dev": {
+        "filament/upgrade": "^4.0",
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.9",
-        "orchestra/testbench": "^8.34",
-        "pestphp/pest": "^2.36",
+        "nunomaduro/collision": "^8.0",
+        "orchestra/testbench": "^10.9",
+        "pestphp/pest": "^4.3",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "CreativeWork\\FilamentExact\\": "src/"
+            "CodeWOW\\FilamentExact\\": "src/"
         }
     },
     "autoload-dev": {
@@ -61,13 +64,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CreativeWork\\FilamentExact\\FilamentExactServiceProvider"
+                "CodeWOW\\FilamentExact\\FilamentExactServiceProvider"
             ],
             "aliases": {
-                "FilamentExact": "CreativeWork\\FilamentExact\\Facades\\FilamentExact"
+                "FilamentExact": "CodeWOW\\FilamentExact\\Facades\\FilamentExact"
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

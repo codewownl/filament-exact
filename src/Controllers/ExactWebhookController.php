@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeWork\FilamentExact\Controllers;
+namespace CodeWOW\FilamentExact\Controllers;
 
-use CreativeWork\FilamentExact\FilamentExactPlugin;
-use CreativeWork\FilamentExact\Mail\ExactErrorMail;
+use CodeWOW\FilamentExact\FilamentExactPlugin;
+use CodeWOW\FilamentExact\Mail\ExactErrorMail;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

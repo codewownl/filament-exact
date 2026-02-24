@@ -1,7 +1,7 @@
 <?php
 
-use CreativeWork\FilamentExact\Controllers\ExactController;
-use CreativeWork\FilamentExact\Controllers\ExactWebhookController;
+use CodeWOW\FilamentExact\Controllers\ExactController;
+use CodeWOW\FilamentExact\Controllers\ExactWebhookController;
 
 // Get path from redirect url
 $redirectPath = parse_url(config('filament-exact.exact.redirect_uri'), PHP_URL_PATH);
